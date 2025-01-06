@@ -10,9 +10,13 @@ This system requires using LLM to include or exclude specific scientific papers 
 ## Benchmarks
 
 Human Rater Performance
+
 Total Records: 838 records
+
 First Round: 70 included / 768 excluded 
+
 Second Round: 22 included / 816 excluded 
+
 Some of the reasons for exclusion:
 + Did not meet PICO criteria: 599 records
 + Right study design but preclinical only: 33 records
