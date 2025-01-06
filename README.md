@@ -1,4 +1,4 @@
-# Meta-Review on Stem Cell Therapy for Spinal Cord Injury (SCI).
+# Screening Records on Stem Cell Therapy for Spinal Cord Injury (SCI) studies.
 This git contains some of the Python code used for the data analytical work for a meta-review of stem cell therapy for spinal cord injuries. More information about the research protocol and data assets can be found on the Open Science Framework (OSF) registration page ([Stem Cell Treatment for Spinal Cord Injuries: Meta-review with meta-analysis](https://osf.io/qz5fu)).
 
 This page is used to mainly facilitate data analytical work with other researchers/providers for the study.
