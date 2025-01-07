@@ -12,7 +12,14 @@ This system requires using LLM to include or exclude specific scientific papers 
 The inclusion and exclusion of papers should be based on the following prompts:
 
 ```
-prompt = """ 
+prompt = """
+
+You are a system that can classify records/papers in the dataset (title_abstract_author.csv). Based on the
+following assessment criteria assign each record/paper in the dataset a value of either TRUE or FALSE in
+order to decide whether to INCLUDE or EXCLUDE the paper for futher review/analysis. A record/paper cannot be
+TRUE nor FALSE for both INCLUDE and EXCLUDE for one response. Both INCLUDE and EXCLUDE are both muturally
+exclusive per record/paper in the dataset.
+
 1) For each record/paper in the dataset (title_abstract_author.csv), the system
    should include records, which satisfy the following PICO model (Population,
    Intervention, Comparison, Outcome) in the title and abstract data fields:
@@ -61,6 +68,16 @@ prompt = """
 6) For each record/paper in the dataset (title_abstract_author.csv), the system should
    exclude records, which only examined animal samples as the target sample in the one paper.
    Not include any studies with human samples.
+
+  Provide a concise and clear reason for exclusion of the logic behind excluding a record/paper in the dataset for the {{title}}. The response must be ONLY a valid JSON in the following format:
+  {{
+      "title": "{{title}}"
+      "inclusion": "..",
+      "exclusion": "..",
+      "reason for exclusion": ".."
+  }}
+  where inclusion and exclusion can be one and only one of TRUE or FALSE, and cannot be TRUE nor FALSE for inclusion and exclusion per record/paper.
+
 """
 ```
 
