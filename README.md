@@ -5,7 +5,64 @@ This page is used to mainly facilitate data analytical work with other researche
 
 ## Background
 
-This system requires using LLM to include or exclude specific scientific papers on stem cell therapy for spinal cord injuries. The mechanism simply accept inputs of the title, abstract and author of records in a dataset (`title_abstract_author.csv`), and then based on the research study protocol includes or excludes relevant papers for further analysis. The work requires to evaluate multiple LLM models against a human agent using interrater reliability Kappa statistic as an evaluation endpoint.  
+This system requires using LLM to include or exclude specific scientific papers on stem cell treatment for spinal cord injuries. The mechanism simply accept inputs of the title, abstract and author of records in a dataset (`title_abstract_author.csv`), and then based on the research study protocol INCLUDES or EXCLUDES relevant papers for further analysis, including providing a reason for exclusion. The work requires to evaluate multiple LLM models against a human agent using interrater reliability Kappa statistic as an evaluation endpoint.  
+
+## Prompts to instruct LLM
+
+The inclusion and exclusion of papers should be based on the following prompts:
+
+```
+prompt = """ 
+1) For each record/paper in the dataset (title_abstract_author.csv), the system
+   should include records, which satisfy the following PICO model (Population,
+   Intervention, Comparison, Outcome) in the title and abstract data fields:
+    - Population: the paper should examine a sample of the target population
+      that have diagnosed spinal cord injury.
+    - Intervention: the paper should examine spinal cord therapy as the main
+      medical intervention on the target population.
+    - Comparison: the paper should examine a sample of the population that
+      receives main medical intervention relative to a control group consisting
+      of a sample of population that received a care-as-usual for spinal cord injuries
+      (such as decompression surgery, rehabilitation etc.), or a sample of
+      population that received an alternative therapy for
+      spinal cord injuries (such as acupuncture).
+    - Outcome: the paper should examine the following outcome measurements
+      when testing the medical intervention relative to the control group.
+      > American Spinal Injury Association (ASIA) motor scale
+      > American Spinal Injury Association (ASIA) light touch scale
+      > American Spinal Injury Association (ASIA) pinprick test scale
+      > American Spinal Injury Association (ASIA) sensation scale
+      > American Spinal Injury Association (ASIA) impairment grade scale
+      > Activities of Daily Living scale
+      > Urine function
+      > Adverse Events
+      > Total Cost per Patient OR Hospital Stay per Week OR
+        Examination Cost per Person OR Hospital Stay Cost per Person
+2) For each record/paper in the dataset (title_abstract_author.csv), the system should
+   include records, which also satisfy the following research designs in the title and abstract data fields:
+    - Systematic Review: the paper should conform to systematic review research design
+      based on the Cochrane Review Library standards.
+    - Review: the paper should be conform to literature review research design. This
+      could vary from narrative review, scoping review, and bibliometrics analysis.
+    - Meta-Analysis: the paper should conform to meta-analysis research design based
+      on the Cochrane Review Library standards.
+3) For each record/paper in the dataset (title_abstract_author.csv), the system should
+   only include records that satisfy the target sample:
+    - Clinical Studies: the paper should only review papers that examine human
+      participants as the target sample. Not just studies on animal samples.
+    - Clinical and Pre-Clinical Studies: the paper should only review papers
+      that examine human sample, and seperately, animal samples as the target samples in the one paper. 
+      Not just studies on animal samples.
+4) For each record/paper in the dataset (title_abstract_author.csv), the system should
+   exclude records, which did not meet or satisfy the above PICO model in the
+   the title and abstract data fields.
+5) For each record/paper in the dataset (title_abstract_author.csv), the system should
+   exclude records, which did not provide any quanitative analysis as part of the review of papers.
+6) For each record/paper in the dataset (title_abstract_author.csv), the system should
+   exclude records, which only examined animal samples as the target sample in the one paper.
+   Not include any studies with human samples.
+"""
+```
 
 ## Benchmarks
 
@@ -19,5 +76,7 @@ Second Round: 22 included / 816 excluded
 
 Some of the reasons for exclusion:
 + Did not meet PICO criteria: 599 records
-+ Right study design but preclinical only: 33 records
-+ Right study design but no qualitative analysis: 184 records
++ Right study design but preclinical sample only: 33 records
++ Right study design but no quantitative analysis: 184 records
+
+## Evaluation Framework
