@@ -107,7 +107,7 @@ These are the input and output of the LLM conversation.
 {
   "message": "Title: Regulating Endogenous Neural Stem Cell Activation to Promote Spinal Cord Injury Repair
               Abstract: Treatment of spinal cord injury has always been a challenge for clinical practitioners and scientists. The development in stem cell based therapies has brought new hopes to patients with spinal cord injuries. In the last a few decades, a variety of stem cells have been used to treat spinal cord injury in animal experiments and some clinical trials. However, there are many technical and ethical challenges to overcome before this novel therapeutic method can be widely applied in clinical practice. With further research in pluripotent stem cells and combined application of genetic and tissue engineering techniques, stem cell based therapies are bond to play increasingly important role in the management of spinal cord injuries.
-              Author": "Gilbert EAB, Lakshman N, Lau KSK, Morshead CM.",
+              Author: Gilbert EAB, Lakshman N, Lau KSK, Morshead CM.",
   "model": "gpt-3.5-turbo"
 }
 ```
