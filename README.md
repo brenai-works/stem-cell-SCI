@@ -106,3 +106,5 @@ These are the input and output of the LLM conversation.
     "reason for exclusion": "The paper seem to examine stem cell based therapies as the main medical intervention, and examining patients with spinal cord injuries. However, it is unclear whether the paper complys with the review study design. In this instance, it was excluded based on this basis."
 }
 ```
+
+## Evaluation Framework
