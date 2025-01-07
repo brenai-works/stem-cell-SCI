@@ -129,3 +129,10 @@ These are the input and output of the LLM conversation.
 ```
 
 ## Evaluation Framework (Key Components and Processes)
+
+### Evaluation Script
+
+```
+$ python3 -m evaluator.scripts.interrater_reliability --human_response="" --machine_response="" 
+```
+Evaluation endpoint to see performance against human rater 
