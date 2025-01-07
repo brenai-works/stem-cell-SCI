@@ -79,4 +79,30 @@ Some of the reasons for exclusion:
 + Right study design but preclinical sample only: 33 records
 + Right study design but no quantitative analysis: 184 records
 
-## Evaluation Framework
+## Example
+
+These are the input and output of the LLM conversation.
+
+### Input
+```
+{
+  "title": "Regulating Endogenous Neural Stem Cell Activation to Promote Spinal Cord Injury Repair",
+  "abstract": "AB  - Treatment of spinal cord injury has always been a challenge for clinical practitioners and scientists. The development in stem cell based therapies has brought new hopes to patients with spinal cord injuries. In the last a few decades, a variety of stem cells have been used to treat spinal cord injury in animal experiments and some clinical trials. However, there are many technical and ethical challenges to overcome before this novel therapeutic method can be widely applied in clinical practice. With further research in pluripotent stem cells and combined application of genetic and tissue engineering techniques, stem cell based therapies are bond to play increasingly important role in the management of spinal cord injuries.",
+  "author": "Gilbert EAB, Lakshman N, Lau KSK, Morshead CM.",
+  "model": "gpt-3.5-turbo"
+}
+```
+
+### Output
+```
+{
+    "inclusion": "True",
+    "exclusion": "False",
+    "reason for exclusion": "None"
+}
+{
+    "inclusion": "False",
+    "exclusion": "True",
+    "reason for exclusion": "The paper seem to examine stem cell based therapies as the main medical intervention, and examining patients with spinal cord injuries. However, it is unclear whether the paper complys with the review study design. In this instance, it was excluded based on this basis."
+}
+```
