@@ -69,14 +69,16 @@ exclusive per record/paper in the dataset.
    exclude records, which only examined animal samples as the target sample in the one paper.
    Not include any studies with human samples.
 
-  Provide a concise and clear reason for exclusion of the logic behind excluding a record/paper in the dataset for the {{title}}. The response must be ONLY a valid JSON in the following format:
+  Provide a concise and clear reason for exclusion of the logic behind excluding a
+  record/paper in the dataset for the {{title}}. The response must be ONLY a valid JSON in the following format:
   {{
       "title": "{{title}}"
       "inclusion": "..",
       "exclusion": "..",
       "reason for exclusion": ".."
   }}
-  where inclusion and exclusion can be one and only one of TRUE or FALSE, and cannot be TRUE nor FALSE for inclusion and exclusion per record/paper.
+  where inclusion and exclusion can be one and only one of TRUE or FALSE, and cannot
+  be TRUE nor FALSE for inclusion and exclusion per record/paper.
 
 """
 ```
