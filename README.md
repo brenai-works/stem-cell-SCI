@@ -128,4 +128,4 @@ These are the input and output of the LLM conversation.
 }
 ```
 
-## Evaluation Framework
+## Evaluation Framework (Key Components and Processes)
