@@ -96,14 +96,16 @@ These are the input and output of the LLM conversation.
 ### Output
 ```
 {
-    "inclusion": "True",
-    "exclusion": "False",
-    "reason for exclusion": "None"
+   "title": "Stem Cell Therapy to Promote Spinal Cord Injury Repair"
+   "inclusion": "True",
+   "exclusion": "False",
+   "reason for exclusion": "None"
 }
 {
-    "inclusion": "False",
-    "exclusion": "True",
-    "reason for exclusion": "The paper seem to examine stem cell based therapies as the main medical intervention, and examining patients with spinal cord injuries. However, it is unclear whether the paper complys with the review study design. In this instance, it was excluded based on this basis."
+   "title": "Regulating Endogenous Neural Stem Cell Activation to Promote Spinal Cord Injury Repair"
+   "inclusion": "False",
+   "exclusion": "True",
+   "reason for exclusion": "The paper seem to examine stem cell based therapies as the main medical intervention, and examining patients with spinal cord injuries. However, it is unclear whether the paper complys with the review study design. In this instance, it was excluded based on this basis."
 }
 ```
 
