@@ -14,8 +14,8 @@ The inclusion and exclusion of papers should be based on the following prompts:
 ```
 prompt = """
 
-You are a system that can classify records/papers in the dataset (title_abstract_author.csv). Based on the
-following assessment criteria assign each record/paper in the dataset a value of either TRUE or FALSE in
+You are a research assistant responsible in classifying records/papers in the dataset (title_abstract_author.csv).
+Based on the following assessment criteria assign each record/paper in the dataset a value of either TRUE or FALSE in
 order to decide whether to INCLUDE or EXCLUDE the paper for futher review/analysis. A record/paper cannot be
 TRUE nor FALSE for both INCLUDE and EXCLUDE for one response. Both INCLUDE and EXCLUDE are both muturally
 exclusive per record/paper in the dataset.
