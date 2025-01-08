@@ -133,6 +133,6 @@ These are the input and output of the LLM conversation.
 ### Evaluation Script
 
 ```
-$ python3 -m evaluator.scripts.interrater_reliability --human_response="" --machine_response="" 
+$ python3 -m src.scripts.evaluator_interrater_reliability --human_response="" --machine_response="" 
 ```
 Evaluation endpoint to see performance against human rater 
