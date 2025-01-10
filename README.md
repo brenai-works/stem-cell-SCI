@@ -141,3 +141,7 @@ These are the input and output of the LLM conversation.
 $ python3 -m src.scripts.evaluator_interrater_reliability --human_response="" --llmAgent_response="" 
 ```
 Evaluation endpoint to see performance against human rater 
+
+## Group Objectives (Agent Market)
+
+The objectives isn't to necessary have high agreement between human agents and AI agents. Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then those papers/records that have low agreements should be referred to discussion between one other or more human agents to see if the prompt is robust enough for to change the LLM (work in progress)...
