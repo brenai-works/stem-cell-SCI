@@ -146,4 +146,4 @@ Evaluation endpoint to see performance against human rater
 
 The objectives isn't to necessary have high agreement between human agents and AI agents. Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agents to see if aggreement can be reached...
 
-Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be seeking the lower cost LLM model, but to seek the most optimal LLM model that meets the standard of the group's objectives [work in progress...]
+Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be seeking the lower cost LLM model, but to seek the most optimally cost LLM model that meets the standard of the group's objectives [work in progress...]
