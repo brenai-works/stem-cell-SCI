@@ -138,12 +138,21 @@ These are the input and output of the LLM conversation.
 ### Evaluation Script
 
 ```
-$ python3 -m src.scripts.evaluator_interrater_reliability --human_response="" --llmAgent_response="" 
+$ python3 -m src.scripts.evaluator_interrater_reliability -h
+evaluator_interrater_reliability.py
+   -a <LLM agent responses>
+   -s <show low aggreement papers (y|n)>
+$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="./data/llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
-Evaluation endpoint to see performance against human rater 
+Evaluation endpoint to review performance against human rater (showing NO low aggreement papers for group discussion)
+
+```
+$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="./data/llm_rater_title_abstract_author.json" --show_low_agreement="Y"
+```
+Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
 The objectives isn't to necessary have high agreement between human agents and AI agents. Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agents to see if aggreement can be reached...
 
-Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be seeking the lower cost LLM model, but to seek the most optimally cost LLM model that meets the standard of the group's objectives [work in progress...]
+Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost LLM model, but to seek the most optimally cost LLM model that meets the collective standard of the group's objectives [work in progress...]
