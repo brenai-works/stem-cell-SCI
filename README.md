@@ -139,9 +139,10 @@ These are the input and output of the LLM conversation.
 
 ```
 $ python3 -m src.scripts.evaluator_interrater_reliability -h
-evaluator_interrater_reliability.py
-   -a <LLM agent responses>
-   -s <show low aggreement papers (y|n)>
+  evaluator_interrater_reliability.py
+    -a <LLM agent responses>
+    -s <show low aggreement papers (y|n)>
+
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="./data/llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
 Evaluation endpoint to review performance against human rater (showing NO low aggreement papers for group discussion)
