@@ -143,12 +143,12 @@ $ python3 -m src.scripts.evaluator_interrater_reliability -h
     -a <LLM agent responses>
     -s <show low aggreement papers (y|n)>
 
-$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="./data/llm_rater_title_abstract_author.json" --show_low_agreement="N"
+$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
 Evaluation endpoint to review performance against human rater (showing NO low aggreement papers for group discussion)
 
 ```
-$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="./data/llm_rater_title_abstract_author.json" --show_low_agreement="Y"
+$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="Y"
 ```
 Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 
