@@ -5,6 +5,7 @@ import os
 import io
 import sys, getopt
 import json
+import csv
 
 # stats
 from scipy import stats
@@ -15,14 +16,13 @@ from statsmodels.stats.inter_rater import to_table
 def main(argv):
     # command line UI 
     opts, args = getopt.getopt(argv, "-ha:s:", ["llmAgent_responses=", "show_low_agreement="])
-    human_agent_responses_file = "human_rater_title_abstract_author.csv"
     llmAgent_responses_file = ""
     show_low_aggree = ""
 
     for opt, arg in opts:
         if opt == '-h':
             print("")
-            print("evaluator_interrater_reliability.py -a <LLM agent responses> -s <show low aggreement papers (y|n)>")
+            print("evaluator_interrater_reliability.py \n -a <LLM agent responses> \n -s <show low aggreement papers (y|n)>")
             print("")
             sys.exit()
         elif opt in ("-a", "--llmAgent_responses"):
@@ -54,6 +54,75 @@ def main(argv):
         print("Show low aggreeement papers:")
         print(show_low_aggree)
         print("")
+
+    # read the human rater responses
+    df_human = read_human_rater_responses(prt=False)
+
+    # read the llm rater responses and transform into dataframe
+    df_llm = read_llm_rater_responses(prt=False)
+
+    # calculate the aggreement levels for each human and llm responses (matched by paper title)
+
+    # calculate Kappa's statistic 
+
+    # calculate Confidence Intervals (CI)
+
+    # show records/papers to human agents for further group discussion
+    if show_low_aggree.lower() == "y": 
+        show_low_aggreement_papers_with(score_under=0.60)
+        print("")
+        sys.exit() 
+    elif show_low_aggree.lower() == "n" or show_low_aggree.lower() == "":
+        print("")
+        sys.exit() 
+    else:
+        print("")
+        print("Error: Invalid option for showing low agreement papers, must be (y|n).")
+        print("")
+        sys.exit() 
+
+def read_human_rater_responses(prt):
+    human_agent_responses_file = "human_rater_title_abstract_author.csv"
+    pwd = "/Users/b/Documents/osf_2024/open_ai/human_agent/"
+    with open(os.path.join(pwd, human_agent_responses_file), 'r') as fp:
+        df = pd.read_csv(fp)
+        human_rater_resp = pd.DataFrame.from_dict({"title":df["Title"], 
+                                                   "authors":df["Authors"], 
+                                                   "included":df["Included"], 
+                                                   "excluded":df["Excluded"]}) # may include reason for exclusion later    
+    print(">> read human responses [...]")
+    if prt:
+        print(human_rater_resp)
+    return human_rater_resp
+
+def read_llm_rater_responses(prt):
+    llm_agent_responses_file = "llm_rater_title_abstract_author.json"
+    pwd = "/Users/b/Documents/osf_2024/open_ai/ai_agent"
+    _title = []
+    _authors = []
+    _included = []
+    _excluded = []
+    _reason = []
+    with open(os.path.join(pwd, llm_agent_responses_file), 'r') as fp:
+        json_doc = json.load(fp)
+        for df in json_doc:
+            _title.append(df["title"])
+            _authors.append(df["authors"])
+            _included.append(df["inclusion"])
+            _excluded.append(df["exclusion"])
+            _reason.append(df["reason for exclusion"])
+        llm_rater_resp = pd.DataFrame.from_dict({"title":_title,
+                                                "authors":_authors,
+                                                "included":_included,
+                                                "excluded":_excluded,
+                                                "reason":_reason})
+    print(">> read llm responses [...]")
+    if prt:
+        print(llm_rater_resp)
+    return llm_rater_resp
+
+def show_low_aggreement_papers_with(score_under):
+    print(">> showing papers with low aggreement scores [...]")
 
 if __name__ == "__main__":
    main(sys.argv[1:])
