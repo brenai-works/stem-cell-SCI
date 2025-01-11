@@ -139,6 +139,7 @@ These are the input and output of the LLM conversation.
 
 ```
 $ python3 -m src.scripts.evaluator_interrater_reliability -h
+
   evaluator_interrater_reliability.py
     -a <LLM agent responses>
     -s <show low aggreement papers (y|n)>
@@ -154,6 +155,11 @@ Evaluation endpoint to review performance against human rater (showing low aggre
 
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
-The objectives isn't to necessary have high agreement between human agents and AI agents. Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agents to see if aggreement can be reached...
+The objectives isn't to necessary have high agreement between human agents and AI agents. Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agents to see if aggreement can be reached ...[work in progress...]
 
-Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost LLM model, but to seek the most optimally cost LLM model that meets the collective standard of the group's objectives [work in progress...]
+Some ideas to help facilitate group discussion;
++ chat directives to show Kappa's aggreement scores, confidence levels, and intra-rater reliability.
++ group feature to tell the AI to regenerate aggreements scores based on chat discussion in channel.
++ group feature to accept winning proposal or to regenerate the instance.
+
+Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost LLM model, but to seek the most optimally cost LLM model that meets the collective standard of the group's objectives. The cost should be competitive with more expensive, close-sourced, commerical products, such as [OpenAI prices](https://platform.openai.com/docs/guides/reasoning?reasoning-prompt-examples=coding). [work in progress...]
