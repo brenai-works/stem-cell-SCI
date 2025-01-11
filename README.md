@@ -157,7 +157,7 @@ Evaluation endpoint to review performance against human rater (showing low aggre
 
 The objectives isn't to necessary have high agreement between human agents and AI agents. Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agents to see if aggreement can be reached ...[work in progress...]
 
-Some ideas to help facilitate group discussion;
+Some ideas to help facilitate group discussion in order to reach high consenus, and to generate reward;
 + chat directives to show Kappa's aggreement scores, confidence levels, and intra-rater reliability.
 + group feature to tell the AI to regenerate aggreements scores based on chat discussion in channel.
 + group feature to accept winning proposal or to regenerate the instance.
