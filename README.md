@@ -155,8 +155,33 @@ $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
-Evaluation endpoint to review performance against human rater (showing NO low aggreement papers for group discussion)
+Evaluation endpoint to review performance against human rater (do not show low aggreement papers for group discussion)
+```
+Evaluator Interrater Reliability version 0.1 (11 Jan 2024)
+Endpoint: Evaluate LLM Response against Human Response
 
+LLM Responses in valid JSON file:
+./llm_rater_title_abstract_author.json
+
+Show low aggreement papers:
+N
+
+>> read human responses [...]
+>> read llm responses [...]
+>> prepare dataset for analysis [...]
+>> calculate agreement levels on entire dataset [...]
+
+# of papers: 777
+----
+human agent  Include  Not Include
+llm agent                        
+Include          9.0         12.0
+Not Include     95.0        661.0
+----
+CI Low: -0.5
+CI High: 1.5
+P-Value: 0.5
+```
 ```
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="Y"
 ```
