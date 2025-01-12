@@ -159,7 +159,7 @@ $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
-```shell
+```
 Evaluator Interrater Reliability version 0.1 (11 Jan 2024)
 Endpoint: Evaluate LLM Response against Human Response
 
