@@ -142,7 +142,7 @@ These are the input and output of the LLM conversation.
 Two outcome datasets exist for the evaluation but are currently not available publicly. Please contact me for more details.
 
 + Human rater responses (`human_rater_title_abstract_author.csv`): csv containing the outcome data of one human rater (see above).
-+ LLM rater (test) responses (`llm_rater_title_abstract_author.json`): json containing dummy outcome data (just for testing).
++ LLM rater responses (`llm_rater_title_abstract_author.json`): json containing fictitious outcome data (only for testing).
 
 ### Evaluation Script
 
@@ -187,19 +187,21 @@ P-Value: 0.5
 -----
 >> calculate Kappa's statistics [...]
 
-                  Simple Kappa Coefficient
-              --------------------------------
-              Kappa                     0.1037
-              ASE                       0.0410
-              95% Lower Conf Limit      0.0233
-              95% Upper Conf Limit      0.1840
+    Simple Kappa Coefficient
+--------------------------------
+Kappa                     0.1037
+ASE                       0.0410
+95% Lower Conf Limit      0.0233
+95% Upper Conf Limit      0.1840
 
-                 Test of H0: Simple Kappa = 0
+Test of H0: Simple Kappa = 0
 
-              ASE under H0              0.0258
-              Z                         4.0213
-              One-sided Pr >  Z         0.0000
-              Two-sided Pr > |Z|        0.0001
+ASE under H0              0.0258
+Z                         4.0213
+One-sided Pr >  Z         0.0000
+Two-sided Pr > |Z|        0.0001
+
+
 ```
 Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 ```
