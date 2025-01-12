@@ -10,7 +10,7 @@ from src.pipes.show_results import show_low_aggreement_papers_with
 
 # utils
 from src.utils.prepare_data import prepare_dataset_for_aggreement 
-
+from src.utils.evaluate_data import calculate_agreement_level
 # main
 def main(argv):
     # command line UI 
@@ -50,18 +50,19 @@ def main(argv):
     print(llmAgent_responses_file)
     print("")
     if show_low_aggree != "":
-        print("Show low aggreeement papers:")
+        print("Show low aggreement papers:")
         print(show_low_aggree)
         print("")
 
     # read the human rater responses
-    df_human = read_human_rater_responses(prt=True)
+    df_human = read_human_rater_responses(prt=False)
 
     # read the llm rater responses and transform into dataframe
-    df_llm = read_llm_rater_responses(prt=True)
+    df_llm = read_llm_rater_responses(prt=False)
 
     # calculate the aggreement levels for each human and llm responses (matched by paper title & authors)
-    reference, data = prepare_dataset_for_aggreement(prt=True, _human=df_human, _llm=df_llm)
+    reference, data = prepare_dataset_for_aggreement(prt=False, _human=df_human, _llm=df_llm)
+    contigency_table = calculate_agreement_level(prt=True, dataset=data)
 
     # calculate Kappa's statistic 
 

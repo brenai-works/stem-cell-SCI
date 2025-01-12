@@ -12,6 +12,7 @@ from dir import llm_agent_responses_file
 from dir import pwd_llm
 
 def read_human_rater_responses(prt):
+    print(">> read human responses [...]")
     pwd = str(Path.home()) + pwd_human
     with open(os.path.join(pwd, human_agent_responses_file), 'r') as fp:
         df = pd.read_csv(fp)
@@ -19,12 +20,12 @@ def read_human_rater_responses(prt):
                                                    "authors":df["Authors"], 
                                                    "included":np.array(df["Included"], dtype=bool), 
                                                    "excluded":np.array(df["Excluded"], dtype=bool)}) # may include reason for exclusion later    
-    print(">> read human responses [...]")
     if prt:
         print(human_rater_resp)
     return human_rater_resp
 
 def read_llm_rater_responses(prt):
+    print(">> read llm responses [...]")
     pwd = str(Path.home()) + pwd_llm
     _title = []
     _authors = []
@@ -44,7 +45,6 @@ def read_llm_rater_responses(prt):
                                                 "included":_included,
                                                 "excluded":_excluded,
                                                 "reason":_reason})
-    print(">> read llm responses [...]")
     if prt:
         print(llm_rater_resp)
     return llm_rater_resp

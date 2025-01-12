@@ -6,3 +6,6 @@ import pandas as pd
 from scipy import stats
 from statsmodels.stats.inter_rater import cohens_kappa
 from statsmodels.stats.inter_rater import to_table
+
+def calculate_agreement_level(prt, dataset):
+    print(">> calculate agreement levels on entire dataset [...]")
