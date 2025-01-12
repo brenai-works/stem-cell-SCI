@@ -69,7 +69,7 @@ def main(argv):
 
     # show records/papers to human agents for further group discussion
     if show_low_aggree.lower() == "y": 
-        show_low_aggreement_papers_with(score_under=0.60)
+        show_low_aggreement_papers_with(scores_under=0.60)
         print("")
         sys.exit() 
     elif show_low_aggree.lower() == "n" or show_low_aggree.lower() == "":
@@ -88,8 +88,8 @@ def read_human_rater_responses(prt):
         df = pd.read_csv(fp)
         human_rater_resp = pd.DataFrame.from_dict({"title":df["Title"], 
                                                    "authors":df["Authors"], 
-                                                   "included":df["Included"], 
-                                                   "excluded":df["Excluded"]}) # may include reason for exclusion later    
+                                                   "included":np.array(df["Included"], dtype=bool), 
+                                                   "excluded":np.array(df["Excluded"], dtype=bool)}) # may include reason for exclusion later    
     print(">> read human responses [...]")
     if prt:
         print(human_rater_resp)
@@ -108,8 +108,8 @@ def read_llm_rater_responses(prt):
         for df in json_doc:
             _title.append(df["title"])
             _authors.append(df["authors"])
-            _included.append(df["inclusion"])
-            _excluded.append(df["exclusion"])
+            _included.append(eval(str(df["inclusion"])))
+            _excluded.append(eval(str(df["exclusion"])))
             _reason.append(df["reason for exclusion"])
         llm_rater_resp = pd.DataFrame.from_dict({"title":_title,
                                                 "authors":_authors,
@@ -121,7 +121,10 @@ def read_llm_rater_responses(prt):
         print(llm_rater_resp)
     return llm_rater_resp
 
-def show_low_aggreement_papers_with(score_under):
+def prepare_dataset(_human, _llm):
+    print(">> prepare dataset for analysis [...]")
+
+def show_low_aggreement_papers_with(scores_under):
     print(">> showing papers with low aggreement scores [...]")
 
 if __name__ == "__main__":
