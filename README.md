@@ -146,6 +146,7 @@ Two outcome datasets exist for the evaluation but are currently not available pu
 
 ### Evaluation Script
 
+Evaluation endpoint to review performance against human rater (do not show low aggreement papers for group discussion)
 ```
 $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
@@ -155,7 +156,6 @@ $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
-Evaluation endpoint to review performance against human rater (do not show low aggreement papers for group discussion)
 ```
 Evaluator Interrater Reliability version 0.1 (11 Jan 2024)
 Endpoint: Evaluate LLM Response against Human Response
@@ -182,10 +182,10 @@ CI Low: -0.5
 CI High: 1.5
 P-Value: 0.5
 ```
+Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 ```
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="Y"
 ```
-Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
