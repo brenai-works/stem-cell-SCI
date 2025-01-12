@@ -172,15 +172,34 @@ N
 >> calculate agreement levels on entire dataset [...]
 
 # of papers: 777
-----
-human agent  Include  Not Include
-llm agent                        
-Include          9.0         12.0
-Not Include     95.0        661.0
-----
+
++---------------+-----------+---------------+
+| Human agent   |   Include |   Not Include |
+| LLM agent     |           |               |
+|---------------+-----------+---------------|
+| Include       |         9 |            12 |
+| Not Include   |        95 |           661 |
++---------------+-----------+---------------+
+
 CI Low: -0.5
 CI High: 1.5
 P-Value: 0.5
+-----
+>> calculate Kappa's statistics [...]
+
+                  Simple Kappa Coefficient
+              --------------------------------
+              Kappa                     0.1037
+              ASE                       0.0410
+              95% Lower Conf Limit      0.0233
+              95% Upper Conf Limit      0.1840
+
+                 Test of H0: Simple Kappa = 0
+
+              ASE under H0              0.0258
+              Z                         4.0213
+              One-sided Pr >  Z         0.0000
+              Two-sided Pr > |Z|        0.0001
 ```
 Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 ```
