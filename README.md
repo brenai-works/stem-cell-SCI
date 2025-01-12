@@ -137,14 +137,14 @@ These are the input and output of the LLM conversation.
 
 ## Evaluation Framework
 
-### Evaluation Script
-
 ### Outcome datasets
 
 Two outcome datasets exist for the evaluation but are currently not available publicly. Please contact me for more details.
 
 + Human rater responses (`human_rater_title_abstract_author.csv`): csv containing the outcome data of one human rater (see above).
 + LLM rater (test) responses (`llm_rater_title_abstract_author.json`): json containing dummy outcome data (just for testing).
+
+### Evaluation Script
 
 ```
 $ python3 -m src.scripts.evaluator_interrater_reliability -h
