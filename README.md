@@ -210,7 +210,7 @@ $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="
 
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
-The overall group objectives isn't to necessary have high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if aggreement can be reached ...[work in progress...]
+The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if aggreement can be reached ...[work in progress...]
 
 Some ideas to help facilitate group discussion in order to reach high consenus, and to generate reward;
 + chat directives to show Kappa's aggreement scores, confidence levels, and intra-rater reliability.
