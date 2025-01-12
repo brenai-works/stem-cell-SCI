@@ -11,6 +11,8 @@ from src.pipes.show_results import show_low_aggreement_papers_with
 # utils
 from src.utils.prepare_data import prepare_dataset_for_aggreement 
 from src.utils.evaluate_data import calculate_agreement_level
+from src.utils.evaluate_data import calculate_kappa_statistics
+
 # main
 def main(argv):
     # command line UI 
@@ -64,13 +66,12 @@ def main(argv):
     reference, data = prepare_dataset_for_aggreement(prt=False, _human=df_human, _llm=df_llm)
     contigency_table = calculate_agreement_level(prt=True, dataset=data)
 
-    # calculate Kappa's statistic 
-
-    # calculate Confidence Intervals (CI)
+    # calculate Kappa's statistic incl confidence intervals (CI)
+    results = calculate_kappa_statistics(prt=True, cont_tab=contigency_table)
 
     # show records/papers to human agents for further group discussion
     if show_low_aggree.lower() == "y": 
-        show_low_aggreement_papers_with(scores_under=0.60, dataset=data)
+        show_low_aggreement_papers_with(threshold=0.60, dataset=data)
         print("")
         sys.exit() 
     elif show_low_aggree.lower() == "n" or show_low_aggree.lower() == "":

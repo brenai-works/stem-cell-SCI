@@ -1,6 +1,7 @@
 # core
 import numpy as np
 import pandas as pd
+from tabulate import tabulate
 
 # stats
 from scipy import stats
@@ -20,14 +21,21 @@ def calculate_agreement_level(prt, dataset):
     if prt:
         print("")
         print("# of papers: " + str(len(dataset)))
-        print("----")
-        print(tab)
-        print("----")
+        print("")
+        print(tabulate(tab, headers=["Human agent\nLLM agent", "Include", "Not Include"], tablefmt="psql"))
+        print("")
         print("CI Low: " + str(arr[1:2][0][0]))
         print("CI High: " + str(arr[1:2][0][2]))
         print("P-Value: " + str(arr[1:2][0][1]))
-        print("")
+        print("-----")
     return arr
 
-def calculate_percentage_agreement(prt, dataset, ref_set):
-    print(">> calculate percentage agreement across agents [...]")
+def calculate_kappa_statistics(prt, cont_tab):
+    print(">> calculate Kappa's statistics [...]")
+    tab = np.array([cont_tab[0][0], cont_tab[0][1]])
+    results = cohens_kappa(table=tab, weights=None, return_results=True, wt=None)
+    if prt:
+        print("")
+        print(results)
+        print("")
+    return results
