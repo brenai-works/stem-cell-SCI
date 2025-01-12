@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
+from pathlib import Path
 import io
 import sys, getopt
 import json
@@ -11,6 +12,12 @@ import csv
 from scipy import stats
 from statsmodels.stats.inter_rater import cohens_kappa
 from statsmodels.stats.inter_rater import to_table
+
+# file path
+from dir import human_agent_responses_file
+from dir import pwd_human
+from dir import llm_agent_responses_file
+from dir import pwd_llm
 
 # main
 def main(argv):
@@ -56,10 +63,10 @@ def main(argv):
         print("")
 
     # read the human rater responses
-    df_human = read_human_rater_responses(prt=False)
+    df_human = read_human_rater_responses(prt=True)
 
     # read the llm rater responses and transform into dataframe
-    df_llm = read_llm_rater_responses(prt=False)
+    df_llm = read_llm_rater_responses(prt=True)
 
     # calculate the aggreement levels for each human and llm responses (matched by paper title)
 
@@ -82,8 +89,7 @@ def main(argv):
         sys.exit() 
 
 def read_human_rater_responses(prt):
-    human_agent_responses_file = "human_rater_title_abstract_author.csv"
-    pwd = "/Users/b/Documents/osf_2024/open_ai/human_agent/"
+    pwd = str(Path.home()) + pwd_human
     with open(os.path.join(pwd, human_agent_responses_file), 'r') as fp:
         df = pd.read_csv(fp)
         human_rater_resp = pd.DataFrame.from_dict({"title":df["Title"], 
@@ -96,8 +102,7 @@ def read_human_rater_responses(prt):
     return human_rater_resp
 
 def read_llm_rater_responses(prt):
-    llm_agent_responses_file = "llm_rater_title_abstract_author.json"
-    pwd = "/Users/b/Documents/osf_2024/open_ai/ai_agent"
+    pwd = str(Path.home()) + pwd_llm
     _title = []
     _authors = []
     _included = []
