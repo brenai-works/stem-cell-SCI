@@ -1,0 +1,17 @@
+
+# Configuration for the user
+api_url: "https://api.marketrouter.ai"
+deposit_amount: 0.2
+
+# Configuration file for the Agent Market Strategy System
+model: "gpt-4o-mini"
+temperature: 0.9
+max_tokens: 16384
+messages: [{"role": "user", "content": "First message to test the system."}]
+background: ""
+max_credit_per_instance: 0.02
+percentage_reward: 1
+instance_timeout: 65
+gen_reward_timeout: 36000
+gen_reward: 0.02
+
