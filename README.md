@@ -1,4 +1,7 @@
 # Screening Records on Stem Cell Therapy for Spinal Cord Injury (SCI) Papers.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![OSF registration](https://img.shields.io/badge/visit-stem_cell_therapy_research_for_SCI-blue)](https://osf.io/qz5fu)
+
 This git contains some of the Python code used for the data analytical work for a meta-review of stem cell therapy for spinal cord injuries. More information about the research protocol and data assets can be found on the Open Science Framework (OSF) registration page ([Stem Cell Treatment for Spinal Cord Injuries: A Meta-review Study](https://osf.io/qz5fu)).
 
 This page is used to mainly facilitate data analytical work with other researchers/providers for the study.
