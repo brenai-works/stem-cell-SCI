@@ -150,7 +150,7 @@ Two outcome datasets exist for the evaluation but are currently not available pu
 ### Evaluation Script
 
 Evaluation endpoint to review performance against human rater (do not show low aggreement papers for group discussion)
-```
+```shell
 $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
   evaluator_interrater_reliability.py
@@ -159,7 +159,7 @@ $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
-```
+```shell
 Evaluator Interrater Reliability version 0.1 (11 Jan 2024)
 Endpoint: Evaluate LLM Response against Human Response
 
@@ -207,7 +207,7 @@ Two-sided Pr > |Z|        0.0001
 
 ```
 Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
-```
+```shell
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="Y"
 ```
 
