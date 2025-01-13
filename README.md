@@ -19,9 +19,10 @@ prompt = """
 
 You are a research assistant responsible in classifying records/papers in the dataset (title_abstract_author.csv).
 Based on the following assessment criteria assign each record/paper in the dataset a value of either TRUE or FALSE in
-order to decide whether to INCLUDE or EXCLUDE the paper for futher review/analysis. A record/paper cannot be
-TRUE nor FALSE for both INCLUDE and EXCLUDE for one response. Both INCLUDE and EXCLUDE are both muturally
-exclusive per record/paper in the dataset.
+order to decide whether to INCLUDE or EXCLUDE the paper for futher review/analysis. If a record/paper is TRUE
+for both INCLUSION and EXCLUSION for a record or paper, then provide an exclusion reason. If a record/paper is
+FALSE for both INCLUSION and EXCLUSION for a record or paper, then there is something wrong and you should
+provide an error as an exclusion reason.
 
 1) For each record/paper in the dataset (title_abstract_author.csv), the system
    should include records, which satisfy the following PICO model (Population,
