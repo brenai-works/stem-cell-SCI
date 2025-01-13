@@ -81,8 +81,8 @@ provide an error as an exclusion reason.
       "exclusion": "..",
       "reason for exclusion": ".."
   }}
-  where inclusion and exclusion can be one and only one of TRUE or FALSE, and cannot
-  be TRUE nor FALSE for inclusion and exclusion per record/paper.
+  where inclusion and exclusion can be one of TRUE or FALSE for
+  inclusion or exclusion per record/paper.
 
 """
 ```
