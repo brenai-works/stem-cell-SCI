@@ -275,9 +275,9 @@ The overall group objectives isn't to necessary achieve high agreement between a
 
 Some ideas to help facilitate group discussion in order to reach high consenus, and to generate reward;
 + chat directives to show Kappa's agreement scores, confidence levels, and inter-rater reliability.
-+ group feature to tell the AI-based Research Assistant (RA) to regenerate human agreement data based on chat discussion in channel (in order to seek further agreement with AI).
-+ group feature to accept winning proposal or to regenerate (or generate another) AI-based RA instance.
-+ opportunitistic chat prompts from the AI-based RA to increase engagement of human agents when similar group discussions topics are raised during the chat.
++ group feature to tell the AI-based Research Support Officer to regenerate human agreement data based on chat discussion in channel (in order to seek further agreement with AI).
++ group feature to accept winning proposal or to regenerate (or generate another) AI-based Research Support Officer instance.
++ opportunitistic chat prompts from the AI-based Research Support Officer to increase engagement of human agents when similar group discussions topics are raised during the chat.
 
 Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost LLM model, but to seek the most optimally cost LLM model that meets the collective standard of the group's objectives. The cost should be competitive with more expensive, close-sourced, commerical products, such as [OpenAI prices](https://platform.openai.com/docs/guides/reasoning?reasoning-prompt-examples=coding). [work in progress...]
 
