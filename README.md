@@ -284,7 +284,7 @@ Cost of using the LLM model, and meeting the group objectives should be balanced
 ## Generate Reward
 
 ```shell
-$ python -m market_router.scripts.generated_reward
+$ python3 -m market_router.scripts.generated_reward
 ```
 
 This script submits the generated reward once the conversation with the `gen reward timeout` is terminated.
