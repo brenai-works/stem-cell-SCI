@@ -10,7 +10,7 @@ This page is used to mainly facilitate data analytical work with other researche
 
 This system requires using LLM to include or exclude specific scientific papers on stem cell treatment for spinal cord injuries. The mechanism simply accept inputs of the title, abstract and author of records in a dataset (`title_abstract_author.csv`), and then based on the research study protocol INCLUDES or EXCLUDES relevant papers for further analysis, including providing a reason for exclusion. The work requires to evaluate multiple LLM models against a human agent using interrater reliability Kappa statistic as an evaluation endpoint.  
 
-## Prompts to instruct LLM
+## Prompts to instruct LLM agent
 
 The inclusion and exclusion of papers should be based on the following prompts:
 
@@ -104,7 +104,7 @@ Some of the reasons for exclusion:
 
 ## Example
 
-These are the input and output of the LLM conversation.
+These are the input and output of the LLM agent conversation.
 
 ### Input
 ```
