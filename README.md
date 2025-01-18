@@ -158,7 +158,9 @@ $ python3 -m src.scripts.evaluator_interrater_reliability -h
     -a <LLM agent responses>
     -s <show low agreement papers (y|n)>
 
-$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
+$ python3 -m src.scripts.evaluator_interrater_reliability
+   --llmAgent_responses="llm_rater_title_abstract_author.json"
+   --show_low_agreement="N"
 ```
 ```
 Evaluator Interrater Reliability version 0.1 (11 Jan 2024)
@@ -217,34 +219,35 @@ $ python3 -m src.scripts.evaluator_interrater_reliability
 [...]
 
 >> calculate percentage agreement across all agents [...]
+>> showing papers with low agreement scores [...]
 
-      id                                              title  agreement          scores
-0      0  The Efficacy and Safety of Mesenchymal Stem Ce...        0.0   [True, False]
-1      1  The Comparative Effects of Mesenchymal Stem Ce...        0.0   [True, False]
-2      2  Neural stem/progenitor cell transplantation fo...        0.0   [True, False]
-3      3  Bladder recovery by stem cell based cell thera...        1.0    [True, True]
-4      4  A Comparative Study of Different Stem Cell Tra...        0.0   [True, False]
-..   ...                                                ...        ...             ...
-772  772  Clinical trial for spinal cord injury with neu...        1.0  [False, False]
-773  773  Effectiveness of bone marrow-derived mononucle...        1.0  [False, False]
-774  774  Effectiveness of bone marrow-derived mononucle...        1.0  [False, False]
-775  775  Curative effect of autologous mesenchymal stem...        1.0  [False, False]
-776  776  The potential of gene therapies for spinal cor...        1.0  [False, False]
+Interrater Reliability: 0.8622908622908623
 
-[777 rows x 4 columns]
+Rater Outliers: 0
 
-Overall Agreement: 0.8622908622908623
+      id                                              title  agreement         scores                                      reason
+0      X  The ...                                                  0.0  [True, False]  Some reason of exclusion explained here...
+1      X  The ...                                                  0.0  [True, False]  Some reason of exclusion explained here...
+2      X  Neur...                                                  0.0  [True, False]  Some reason of exclusion explained here...
+3      X  A Co...                                                  0.0  [True, False]  Some reason of exclusion explained here...
+4      X  Clin...                                                  0.0  [True, False]  Some reason of exclusion explained here...
+..   ...                                                ...        ...            ...                                         ...
+102  XXX  Safe...                                                  0.0  [False, True]                                            
+103  XXX  Moto...                                                  0.0  [False, True]     It was confusing, it could be either...
+104  XXX  Gran...                                                  0.0  [False, True]     It was confusing, it could be either...
+105  XXX  Ther...                                                  0.0  [False, True]                                            
+106  XXX  Clin...                                                  0.0  [False, True]     It was confusing, it could be either...
 
->> showing papers with low aggreement scores [...]
+[107 rows x 5 columns]
 ```
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
 The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the agreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if agreement can be reached ...[work in progress...]
 
 Some ideas to help facilitate group discussion in order to reach high consenus, and to generate reward;
-+ chat directives to show Kappa's agreement scores, confidence levels, and intra-rater reliability.
-+ group feature to tell the AI to regenerate agreements scores based on chat discussion in channel.
-+ group feature to accept winning proposal or to regenerate (or generate another) instance.
-+ opportunitistic chat prompts from the AI to increase engagement of human agents when similar group discussions topics are raised during the chat.
++ chat directives to show Kappa's agreement scores, confidence levels, and inter-rater reliability.
++ group feature to tell the AI-based Research Assistant (RA) to regenerate human agreement data based on chat discussion in channel (in order to seek further agreement with AI).
++ group feature to accept winning proposal or to regenerate (or generate another) AI-based RA instance.
++ opportunitistic chat prompts from the AI-based RA to increase engagement of human agents when similar group discussions topics are raised during the chat.
 
 Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost LLM model, but to seek the most optimally cost LLM model that meets the collective standard of the group's objectives. The cost should be competitive with more expensive, close-sourced, commerical products, such as [OpenAI prices](https://platform.openai.com/docs/guides/reasoning?reasoning-prompt-examples=coding). [work in progress...]
