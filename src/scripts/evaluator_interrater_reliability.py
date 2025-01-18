@@ -74,7 +74,8 @@ def main(argv):
     if show_low_aggree.lower() == "y": 
         tab = show_low_agreement_papers_with(threshold=0.60, dataset=data, ref_set=reference)
         print("")
-        print(tabulate(tab, headers="keys", tablefmt="psql"))
+        # print(tabulate(tab, headers="keys", tablefmt="psql"))
+        print(tab)
         print("")
         sys.exit() 
     elif show_low_aggree.lower() == "n" or show_low_aggree.lower() == "":

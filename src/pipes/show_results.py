@@ -79,9 +79,10 @@ def show_low_agreement_papers_with(threshold, dataset, ref_set):
     outliers = 0
     print(">> showing papers with low agreement scores [...]")
     # identify any raters (human and llm agent) outliers (only more than one raters)
+    print("")
+    print("Interrater Reliability: " + str(overall_interrater_reliability))
     if len(dataset) > 2:
         print("")
-        print("Interrater Reliability: " + str(overall_interrater_reliability))
         print("Rater Outliers: " + str(outliers))
         print("")
     # retrieve papers/records that fall below threshold
