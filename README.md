@@ -244,7 +244,7 @@ $ python3 -m src.scripts.evaluator_interrater_reliability
    --llmAgent_responses="llm_rater_title_abstract_author.json"
    --show_low_agreement="Y"
 ```
-```shell
+```
 [...]
 
 >> calculate percentage agreement across all agents [...]
