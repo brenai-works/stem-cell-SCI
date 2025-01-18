@@ -39,17 +39,17 @@ def calculate_percentage_agreement(prt, _dataset, _ref_set):
                         n_tn = float(df_results.iloc[0][1])    # true negative
                         n_fn = float(0.0)                      # false negative
                 if n_tn == n_tp:
-                    if n_tn > float(0.0) or n_tp > float(0.0):                      # want to check if true positive and negative values
+                    if n_tn > float(0.0) or n_tp > float(0.0):                      # want to check true positive and negative values
                         percentage_agreeement = float(0.0)
                     else:
                         percentage_agreeement = n_tn + n_tp
                 elif n_tn > n_tp:
-                    if n_fp > float(0.0) or n_fn > float(0.0) or n_tp > float(0.0): # want to check for false negatives and positive values
+                    if n_fp > float(0.0) or n_fn > float(0.0) or n_tp > float(0.0): # want to check false negatives and positive values
                         percentage_agreeement = n_tn + n_fp
                     else:
                         percentage_agreeement = float(0.0)
                 elif n_tn < n_tp:
-                    if n_fn > float(0.0) or n_fp > float(0.0) or n_tp > float(0.0): # want to check for false negatives and positives values
+                    if n_fn > float(0.0) or n_fp > float(0.0) or n_tp > float(0.0): # want to check false negatives and positives values
                         percentage_agreeement = n_tp + n_fn
                     else:
                         percentage_agreeement = float(0.0) 
@@ -72,12 +72,17 @@ def calculate_percentage_agreement(prt, _dataset, _ref_set):
         print("")
     return agreement_tab
 
-def show_low_aggreement_papers_with(threshold, dataset, ref_set):
+def show_low_agreement_papers_with(threshold, dataset, ref_set):
     low_agreement_papers = pd.DataFrame({})
     agreement_tab = calculate_percentage_agreement(prt=True, _dataset=dataset, _ref_set=ref_set)
-    print(">> showing papers with low aggreement scores [...]")
+    outliers = 0
+    print(">> showing papers with low agreement scores [...]")
+    # identify any raters (human and llm agent) outliers (only more than one raters)
+    if len(dataset) > 2:
+        print("")
+        print("Rater Outliers Detected: " + str(outliers))
+        print("")
     # retrieve papers/records that fall below threshold
-
-    # identify any raters (human and llm agent) outliers
+    print(agreement_tab.loc[agreement_tab["agreement"] < float(threshold)])
 
     return low_agreement_papers

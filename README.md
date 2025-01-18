@@ -150,13 +150,13 @@ Two outcome datasets exist for the evaluation but are currently not available pu
 
 ### Evaluation Script
 
-Evaluation endpoint to review performance against human rater (do not show low aggreement papers for group discussion)
+Evaluation endpoint to review performance against human rater (do not show low agreement papers for group discussion)
 ```shell
 $ python3 -m src.scripts.evaluator_interrater_reliability -h
 
   evaluator_interrater_reliability.py
     -a <LLM agent responses>
-    -s <show low aggreement papers (y|n)>
+    -s <show low agreement papers (y|n)>
 
 $ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="N"
 ```
@@ -167,7 +167,7 @@ Endpoint: Evaluate LLM Response against Human Response
 LLM Responses in valid JSON file:
 ./llm_rater_title_abstract_author.json
 
-Show low aggreement papers:
+Show low agreement papers:
 N
 
 >> read human responses [...]
@@ -207,7 +207,7 @@ Two-sided Pr > |Z|        0.0001
 
 
 ```
-Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
+Evaluation endpoint to review performance against human rater (showing low agreement papers for group discussion)
 ```shell
 $ python3 -m src.scripts.evaluator_interrater_reliability
    --llmAgent_responses="llm_rater_title_abstract_author.json"
@@ -239,11 +239,11 @@ Overall Agreement: 0.8622908622908623
 ```
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
-The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if aggreement can be reached ...[work in progress...]
+The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the agreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if agreement can be reached ...[work in progress...]
 
 Some ideas to help facilitate group discussion in order to reach high consenus, and to generate reward;
-+ chat directives to show Kappa's aggreement scores, confidence levels, and intra-rater reliability.
-+ group feature to tell the AI to regenerate aggreements scores based on chat discussion in channel.
++ chat directives to show Kappa's agreement scores, confidence levels, and intra-rater reliability.
++ group feature to tell the AI to regenerate agreements scores based on chat discussion in channel.
 + group feature to accept winning proposal or to regenerate (or generate another) instance.
 + opportunitistic chat prompts from the AI to increase engagement of human agents when similar group discussions topics are raised during the chat.
 

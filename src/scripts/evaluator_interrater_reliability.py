@@ -7,10 +7,10 @@ from tabulate import tabulate
 # pipes
 from src.pipes._get_responses import read_human_rater_responses
 from src.pipes._get_responses import read_llm_rater_responses
-from src.pipes.show_results import show_low_aggreement_papers_with
+from src.pipes.show_results import show_low_agreement_papers_with
 
 # utils
-from src.utils.prepare_data import prepare_dataset_for_aggreement 
+from src.utils.prepare_data import prepare_dataset_for_agreement 
 from src.utils.evaluate_data import calculate_agreement_level
 from src.utils.evaluate_data import calculate_kappa_statistics
 
@@ -24,7 +24,7 @@ def main(argv):
     for opt, arg in opts:
         if opt == '-h':
             print("")
-            print("evaluator_interrater_reliability.py \n -a <LLM agent responses> \n -s <show low aggreement papers (y|n)>")
+            print("evaluator_interrater_reliability.py \n -a <LLM agent responses> \n -s <show low agreement papers (y|n)>")
             print("")
             sys.exit()
         elif opt in ("-a", "--llmAgent_responses"):
@@ -53,7 +53,7 @@ def main(argv):
     print(llmAgent_responses_file)
     print("")
     if show_low_aggree != "":
-        print("Show low aggreement papers:")
+        print("Show low agreement papers:")
         print(show_low_aggree)
         print("")
 
@@ -63,8 +63,8 @@ def main(argv):
     # read the llm rater responses and transform into dataframe
     df_llm = read_llm_rater_responses(prt=False)
 
-    # calculate the aggreement levels for each human and llm responses (matched by paper title & authors)
-    reference, data = prepare_dataset_for_aggreement(prt=False, _human=df_human, _llm=df_llm)
+    # calculate the agreement levels for each human and llm responses (matched by paper title & authors)
+    reference, data = prepare_dataset_for_agreement(prt=False, _human=df_human, _llm=df_llm)
     contigency_table = calculate_agreement_level(prt=True, dataset=data)
 
     # calculate Kappa's statistic incl confidence intervals (CI)
@@ -72,7 +72,7 @@ def main(argv):
 
     # show records/papers to human agents for further group discussion
     if show_low_aggree.lower() == "y": 
-        tab = show_low_aggreement_papers_with(threshold=0.60, dataset=data, ref_set=reference)
+        tab = show_low_agreement_papers_with(threshold=0.60, dataset=data, ref_set=reference)
         print("")
         print(tabulate(tab, headers="keys", tablefmt="psql"))
         print("")

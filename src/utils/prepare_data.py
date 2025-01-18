@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-def prepare_dataset_for_aggreement(prt, _human, _llm):
+def prepare_dataset_for_agreement(prt, _human, _llm):
     print(">> prepare dataset for analysis [...]")
     id = 0
     ref = pd.DataFrame.from_dict({"id":[], "title":[]})
