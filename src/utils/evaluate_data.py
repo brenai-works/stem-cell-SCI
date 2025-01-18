@@ -4,7 +4,6 @@ import pandas as pd
 from tabulate import tabulate
 
 # stats
-from scipy import stats
 from statsmodels.stats.inter_rater import cohens_kappa
 from statsmodels.stats.inter_rater import to_table
 

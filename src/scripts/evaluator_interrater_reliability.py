@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import sys, getopt
+from tabulate import tabulate
 
 # pipes
 from src.pipes._get_responses import read_human_rater_responses
@@ -71,7 +72,9 @@ def main(argv):
 
     # show records/papers to human agents for further group discussion
     if show_low_aggree.lower() == "y": 
-        show_low_aggreement_papers_with(threshold=0.60, dataset=data)
+        tab = show_low_aggreement_papers_with(threshold=0.60, dataset=data, ref_set=reference)
+        print("")
+        print(tabulate(tab, headers="keys", tablefmt="psql"))
         print("")
         sys.exit() 
     elif show_low_aggree.lower() == "n" or show_low_aggree.lower() == "":
