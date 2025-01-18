@@ -209,9 +209,34 @@ Two-sided Pr > |Z|        0.0001
 ```
 Evaluation endpoint to review performance against human rater (showing low aggreement papers for group discussion)
 ```shell
-$ python3 -m src.scripts.evaluator_interrater_reliability --llmAgent_responses="llm_rater_title_abstract_author.json" --show_low_agreement="Y"
+$ python3 -m src.scripts.evaluator_interrater_reliability
+   --llmAgent_responses="llm_rater_title_abstract_author.json"
+   --show_low_agreement="Y"
 ```
+```shell
+[...]
 
+>> calculate percentage agreement across all agents [...]
+
+      id                                              title  agreement          scores
+0      0  The Efficacy and Safety of Mesenchymal Stem Ce...        0.0   [True, False]
+1      1  The Comparative Effects of Mesenchymal Stem Ce...        0.0   [True, False]
+2      2  Neural stem/progenitor cell transplantation fo...        0.0   [True, False]
+3      3  Bladder recovery by stem cell based cell thera...        1.0    [True, True]
+4      4  A Comparative Study of Different Stem Cell Tra...        0.0   [True, False]
+..   ...                                                ...        ...             ...
+772  772  Clinical trial for spinal cord injury with neu...        1.0  [False, False]
+773  773  Effectiveness of bone marrow-derived mononucle...        1.0  [False, False]
+774  774  Effectiveness of bone marrow-derived mononucle...        1.0  [False, False]
+775  775  Curative effect of autologous mesenchymal stem...        1.0  [False, False]
+776  776  The potential of gene therapies for spinal cor...        1.0  [False, False]
+
+[777 rows x 4 columns]
+
+Overall Agreement: 0.8622908622908623
+
+>> showing papers with low aggreement scores [...]
+```
 ## Group Objectives (Agent.Market vs OpenAI Integration)
 
 The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the aggreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if aggreement can be reached ...[work in progress...]
