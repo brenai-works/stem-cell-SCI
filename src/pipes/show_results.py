@@ -70,19 +70,24 @@ def calculate_percentage_agreement(prt, _dataset, _ref_set):
         print("")
         print("Overall Agreement: " + str(overall_interrater_reliability))
         print("")
-    return agreement_tab
+    return agreement_tab, overall_interrater_reliability
 
 def show_low_agreement_papers_with(threshold, dataset, ref_set):
-    low_agreement_papers = pd.DataFrame({})
-    agreement_tab = calculate_percentage_agreement(prt=True, _dataset=dataset, _ref_set=ref_set)
+    low_agreement_papers = None
+    df_reason = pd.DataFrame.from_dict({"id":[], "reason":[]})
+    agreement_tab, overall_interrater_reliability = calculate_percentage_agreement(prt=False, _dataset=dataset, _ref_set=ref_set)
     outliers = 0
     print(">> showing papers with low agreement scores [...]")
     # identify any raters (human and llm agent) outliers (only more than one raters)
     if len(dataset) > 2:
         print("")
-        print("Rater Outliers Detected: " + str(outliers))
+        print("Interrater Reliability: " + str(overall_interrater_reliability))
+        print("Rater Outliers: " + str(outliers))
         print("")
     # retrieve papers/records that fall below threshold
-    print(agreement_tab.loc[agreement_tab["agreement"] < float(threshold)])
-
+    if low_agreement_papers is None:
+        low_agreement_papers = agreement_tab.loc[agreement_tab["agreement"] < float(threshold)]
+        df_reason["id"] = ref_set["id"]
+        df_reason["reason"] = ref_set["reason"]
+        low_agreement_papers = pd.merge(low_agreement_papers, df_reason, on="id", how="inner")
     return low_agreement_papers
