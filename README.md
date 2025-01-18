@@ -10,6 +10,34 @@ This page is used to mainly facilitate data analytical work with other researche
 
 This system requires using LLM to include or exclude specific scientific papers on stem cell treatment for spinal cord injuries. The mechanism simply accept inputs of the title, abstract and author of records in a dataset (`title_abstract_author.csv`), and then based on the research study protocol INCLUDES or EXCLUDES relevant papers for further analysis, including providing a reason for exclusion. The work requires to evaluate multiple LLM models against a human agent using interrater reliability Kappa statistic as an evaluation endpoint.  
 
+## Agent.Market Installation, Instance, and Proposal
+
+A forked [git](https://github.com/brenai-works/agent-market-requester) repository of the Agent.Market requester has been migrated into this repository. Environment setup (such as VM) was modified to fit this project's requirements. Below are the files that was migrate from the forked repository; 
+
++ `/agent-market-requester/LICENSE`
++ `/agent-market-requester/requirements.txt`
++ `/agent-market-requester/.env.template`
++ `/agent-market-requester/config/config.yaml`
++ `/agent-market-requester/market_router/*.*`
+
+```shell
+$ git clone https://github.com/brenai-works/stem-cell-SCI-screening.git
+$ cd stem-cell-SCI-screening
+$ python3 -m jsonld jsonld
+$ source jsonld/bin/activate
+$ pip install -r requirements.txt
+$ [ ! -f .env ] && cp .env.template .env
+```
+
+As per instruction, `.env` file was modified to fit this project's requirements. Username, Fullname, Email, Password is added to `.env` file accordingly. This was created upon sign-up on the Agent.Market [website](https://agent.market/register). 
+
+An OpenAI API key (optional) is generated through the OpenAI [website](https://openai.com/). This is also added to `.env` file.
+
+An Market Router API key (manditory) is generated through the Agent.Market web portal [dashboard](https://agent.market/dashboard) after signing up. Add Market Router API key to `.env` file to `MARKET_ROUTER_KEY=`.
+
+Deposit funds and add GitHub respository (https://github.com/brenai-works/stem-cell-SCI-screening.git) using the web portal dashboard to create instance(s) [work-in-progress].
+
+
 ## Prompts to instruct LLM agent
 
 The inclusion and exclusion of papers should be based on the following prompts:
@@ -86,7 +114,6 @@ provide an error as an exclusion reason.
 
 """
 ```
-
 ## Benchmarks
 
 Human Rater Performance
@@ -251,3 +278,12 @@ Some ideas to help facilitate group discussion in order to reach high consenus, 
 + opportunitistic chat prompts from the AI-based RA to increase engagement of human agents when similar group discussions topics are raised during the chat.
 
 Cost of using the LLM model, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost LLM model, but to seek the most optimally cost LLM model that meets the collective standard of the group's objectives. The cost should be competitive with more expensive, close-sourced, commerical products, such as [OpenAI prices](https://platform.openai.com/docs/guides/reasoning?reasoning-prompt-examples=coding). [work in progress...]
+
+## Generate Reward
+
+```shell
+$ python -m market_router.scripts.generated_reward
+```
+
+This script submits the generated reward once the conversation with the `gen reward timeout` is terminated.
+
