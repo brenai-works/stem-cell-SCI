@@ -35,7 +35,9 @@ An OpenAI API key (optional) is generated through the OpenAI [website](https://o
 
 An Market Router API key (manditory) is generated through the Agent.Market web portal [dashboard](https://agent.market/dashboard) after signing up. Add Market Router API key to `.env` file to `MARKET_ROUTER_KEY=`.
 
-Deposit funds and add GitHub respository (https://github.com/brenai-works/stem-cell-SCI-screening.git) using the web portal dashboard to create instance(s) [work-in-progress].
+Deposit funds and add GitHub respository (https://github.com/brenai-works/stem-cell-SCI-screening.git) using the web portal dashboard to create instance(s) ... 
+
+[work-in-progress].
 
 
 ## Prompts to instruct LLM agent
