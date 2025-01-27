@@ -271,7 +271,9 @@ Rater Outliers: 0
 ```
 ## Group Objectives (Agent.Market vs Slack Agentforce vs Atlassian Rovo)
 
-The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the agreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if agreement can be reached ...[work in progress...]
+The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the agreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if agreement can be reached ...
+
+[work in progress...]
 
 Some ideas to help facilitate group discussion in order to reach high consenus, and to generate reward;
 + chat directives to show Kappa's agreement scores, confidence levels, and inter-rater reliability.
