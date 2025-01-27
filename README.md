@@ -281,10 +281,10 @@ Some ideas to help facilitate group discussion in order to reach high consenus, 
 
 Cost of using the agent, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost agent, but to seek the most optimally cost agent that meets the collective standard of the group's objectives. 
 
-The cost should be competitive with more expensive, close-sourced, commerical products; 
+The cost and prices should be competitive with more expensive, close-sourced, commerical products; 
 + [Slack](https://slack.com/intl/en-au/pricing)
 + [Atlassian](https://www.atlassian.com/software/rovo/pricing)
-+ [OpenAI](https://openai.com/api/pricing/) prices.
++ [OpenAI](https://openai.com/api/pricing/)
 
 [work in progress...]
 
