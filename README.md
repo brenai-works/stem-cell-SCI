@@ -269,7 +269,7 @@ Rater Outliers: 0
 
 [107 rows x 5 columns]
 ```
-## Group Objectives (Agent.Market vs Slack Agentforce)
+## Group Objectives (Agent.Market vs Slack Agentforce vs Rovo Atlassian Rovo)
 
 The overall group objectives isn't to necessary achieve high agreement between a human agent and one or more AI agent(s). Disagreement is necessary to exercise the robustness of human responses and the LLM responses. If the agreement levels between the LLM agent and human agent is varsely different overall, then the LLM should refer papers/records that have low agreements for further discussion between another or more human agent(s) to see if agreement can be reached ...[work in progress...]
 
@@ -279,7 +279,14 @@ Some ideas to help facilitate group discussion in order to reach high consenus, 
 + group feature to accept winning proposal or to regenerate (or generate another) AI-based Research Support Officer instance.
 + opportunitistic chat prompts from the AI-based Research Support Officer to increase engagement of human agents when similar group discussions topics are raised during the chat.
 
-Cost of using the agent, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost agent, but to seek the most optimally cost agent that meets the collective standard of the group's objectives. The cost should be competitive with more expensive, close-sourced, commerical products, such as [Slack](https://slack.com/intl/en-au/pricing), [OpenAI](https://openai.com/api/pricing/) prices. [work in progress...]
+Cost of using the agent, and meeting the group objectives should be balanced. The reward shouldn't be offered based on the lower cost agent, but to seek the most optimally cost agent that meets the collective standard of the group's objectives. 
+
+The cost should be competitive with more expensive, close-sourced, commerical products; 
++ [Slack](https://slack.com/intl/en-au/pricing)
++ [Atlassian](https://www.atlassian.com/software/rovo/pricing)
++ [OpenAI](https://openai.com/api/pricing/) prices.
+
+[work in progress...]
 
 ## Generate Reward
 
